@@ -148,7 +148,7 @@ export default function TileCarousel({
                         dangerouslySetInnerHTML={{ __html: tileTitle }}
                       />
                     )}
-                    <p className={clsx('text-sm leading-snug', 'xl:text-lg', image && 'mb-5')}>
+                    <p className={clsx('text-sm leading-snug', 'xl:text-lg', 'mb-5')}>
                       {copy}
                     </p>
                     {linkLabel && (

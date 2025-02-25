@@ -4,6 +4,7 @@ import Button from '@/components/Button/Button';
 import CMSImageBox from '@/components/ImageBox/CMSImageBox';
 
 import { AnimatedElement } from '@/components/AnimatedComponent/AnimatedComponent';
+import { log } from '@/lib/logger';
 import type { SanityImage } from '@/lib/sanity.image';
 import type { ButtonSchemaType } from '@/schemas/objects/button';
 import clsx from 'clsx';
@@ -26,8 +27,7 @@ export default function CopyAndImage(props: CopyAndImageProps) {
     props;
 
   if (!mobileAlignment || !desktopAlignment) {
-    // eslint-disable-next-line no-console
-    console.warn(
+    log.warn(
       '@deprecated A CopyAndImage component is using a depricated schema field. Please update the schema.'
     );
     return <DeprecatedCopyAndImage {...props} />;

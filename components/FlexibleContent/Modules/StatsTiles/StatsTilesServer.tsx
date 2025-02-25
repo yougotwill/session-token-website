@@ -1,4 +1,5 @@
 import { REVALIDATIONS } from '@/lib/constants';
+import { log } from '@/lib/logger';
 import StatsTiles from './StatsTiles';
 
 async function getData(): Promise<string | null> {
@@ -21,8 +22,7 @@ async function getData(): Promise<string | null> {
     const { nodeCount } = await response.json();
     return String(nodeCount);
   } catch (err) {
-    // eslint-disable-next-line no-console
-    console.error(`internal ${response?.status || ''} error from Data API. Error ${err}`);
+    log.error(`internal ${response?.status || ''} error from Data API. Error ${err}`);
     return null;
   }
 }

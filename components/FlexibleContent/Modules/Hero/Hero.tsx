@@ -11,6 +11,7 @@ import {
 import Button from '@/components/Button/Button';
 import ScrollButton from '@/components/Button/ScrollButton';
 import SplineModel from '@/components/SplineScene/SplineScene';
+import { log } from '@/lib/logger';
 import type {
   HeroSchemaType,
   HeroVariantType,
@@ -41,8 +42,7 @@ export default function Hero(props: HeroSchemaType) {
 
   // TODO - Remove DepricatedHero support when all heros are updated
   if (!_variant || !image) {
-    // eslint-disable-next-line no-console
-    console.warn(
+    log.warn(
       '@deprecated A Hero component is using a depricated schema field. Please update the schema.'
     );
 

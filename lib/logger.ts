@@ -3,16 +3,21 @@ import { isProduction } from './env';
 
 class Logger {
   static debugEnabled = !isProduction() && process.env.DEBUG_LOG === 'true';
+
+  private getTimestamp(): string {
+    return new Date().toISOString();
+  }
+
   public debug(message: string, ...args: Array<unknown>) {
     if (Logger.debugEnabled) {
-      console.debug(message, ...args);
+      console.debug(`[${this.getTimestamp()}] ${message}`, ...args);
     }
   }
   public info(message: string, ...args: Array<unknown>) {
-    console.info(message, ...args);
+    console.info(`[${this.getTimestamp()}] ${message}`, ...args);
   }
   public error(message: string, ...args: Array<unknown>) {
-    console.error(message, ...args);
+    console.error(`[${this.getTimestamp()}] ${message}`, ...args);
   }
 }
 

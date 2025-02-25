@@ -19,6 +19,9 @@ class Logger {
   public error(message: string, ...args: Array<unknown>) {
     console.error(`[${this.getTimestamp()}] ${message}`, ...args);
   }
+  public warn(message: string, ...args: Array<unknown>) {
+    console.warn(`[${this.getTimestamp()}] ${message}`, ...args);
+  }
 }
 
 const log = new Logger();

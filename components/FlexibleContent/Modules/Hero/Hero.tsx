@@ -41,7 +41,7 @@ export default function Hero(props: HeroSchemaType) {
   };
 
   // TODO - Remove DepricatedHero support when all heros are updated
-  if (!_variant || !image) {
+  if (!_variant || (!image && !splineScene)) {
     log.warn(
       '@deprecated A Hero component is using a depricated schema field. Please update the schema.'
     );

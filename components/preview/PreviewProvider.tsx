@@ -4,6 +4,7 @@ import { suspend } from 'suspend-react';
 
 import { isProduction } from '@/lib/env';
 import { LiveQueryProvider } from '@sanity/preview-kit';
+import type { ReactNode } from 'react';
 
 // suspend-react cache is global, so we use a unique key to avoid collisions
 const UniqueKey = Symbol('@/lib/sanity.client');
@@ -12,7 +13,7 @@ export default function PreviewProvider({
   children,
   token,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   token?: string;
 }) {
   const { sanityClient: client } = suspend(() => import('@/lib/sanity.client'), [UniqueKey]);

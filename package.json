@@ -31,7 +31,7 @@
     "@sanity/preview-kit": "5.0.33",
     "@sanity/vision": "3.34.0",
     "@splinetool/react-spline": "4.0.0",
-    "@splinetool/runtime": "1.7.4",
+    "@splinetool/runtime": "1.9.72",
     "@vercel/og": "^0.6.2",
     "class-variance-authority": "^0.7.0",
     "clsx": "2.1.0",

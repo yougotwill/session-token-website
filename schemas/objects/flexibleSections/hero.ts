@@ -33,7 +33,14 @@ const splineSceneOptions = [
   },
 ];
 
-export type SplineSceneType = 'padlock' | 'globe' | 'sceneUrl';
+export type SplineSceneType =
+  | 'padlock'
+  | 'globe'
+  | 'sceneUrl'
+  | 'exp1'
+  | 'exp2'
+  | 'exp11'
+  | 'exp22';
 
 const heroFields = [
   defineField({

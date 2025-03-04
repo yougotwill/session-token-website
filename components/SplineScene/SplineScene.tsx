@@ -13,6 +13,14 @@ const padlockScene = '/assets/spline/padlock.splinecode';
 
 const getSplineSceneUrl = (splineScene: SplineSceneType, spineSceneUrl: string | undefined) => {
   switch (splineScene) {
+    case 'exp1':
+      return '/assets/spline/exp1.splinecode';
+    case 'exp2':
+      return '/assets/spline/exp2.splinecode';
+    case 'exp11':
+      return '/assets/spline/exp11.splinecode';
+    case 'exp22':
+      return '/assets/spline/exp22.splinecode';
     case 'padlock':
       return padlockScene;
     case 'sceneUrl':

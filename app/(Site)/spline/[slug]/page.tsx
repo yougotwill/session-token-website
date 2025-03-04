@@ -13,10 +13,7 @@ export default function SplinePage({ params }: { params: { slug: string } }) {
     <PageWrapper>
       <PageComponents>
         <section className={clsx('flex w-full flex-col items-center justify-start pt-20')}>
-          <SplineModel
-            splineScene={slug as SplineSceneType}
-            className={clsx('h-dvh w-screen md:pl-20 lg:pl-0 lg:pr-40')}
-          />
+          <SplineModel splineScene={slug as SplineSceneType} className={clsx('h-dvh w-screen')} />
           <div className={clsx('flex flex-col items-center justify-center gap-20 lg:px-20')}>
             <AnimatedElement delay={300} type="div">
               Reprehenderit qui sint eiusmod ut officia nisi deserunt commodo non mollit irure.

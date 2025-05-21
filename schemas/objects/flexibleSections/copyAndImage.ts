@@ -19,6 +19,21 @@ export const copyAndImage = defineType({
       options: { hotspot: true },
     }),
     defineField({
+      name: 'isStakingRewardImage',
+      type: 'boolean',
+      title: 'Is this image for the Staking Reward Pool?',
+      initialValue: false,
+      description:
+        'Fetch the staking reward pool amount from the Network API and display it in the image.',
+    }),
+    defineField({
+      name: 'stakingRewardFallbackValue',
+      type: 'number',
+      title:
+        'If the Network API is unavailable, use this value. Should be updated manually every now and then.',
+      hidden: ({ parent }) => !parent?.isStakingRewardImage,
+    }),
+    defineField({
       name: 'showButton',
       type: 'boolean',
       title: 'Show Button',

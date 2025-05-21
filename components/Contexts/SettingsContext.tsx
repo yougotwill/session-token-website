@@ -5,7 +5,9 @@ import { createContext, type ReactNode } from 'react';
 
 export const SettingsContext = createContext({
   menuTopLink: undefined,
+  menuTopLink2: undefined,
   mobileMenuCta: undefined,
+  mobileMenuCta2: undefined,
   menuItems: undefined,
   ogImage: undefined,
   shareModal: undefined,

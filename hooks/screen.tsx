@@ -1,10 +1,10 @@
+import { UI } from '@/lib/constants';
+import { useWindowSize } from '@uidotdev/usehooks';
 import { useEffect, useState } from 'react';
 
-import { UI } from '@/lib/constants';
-import { useWindowSize } from 'react-use';
-
 export function useScreenWidth() {
-  const { width } = useWindowSize();
+  const { width: _width } = useWindowSize();
+  const width = Number(_width);
 
   // Mobile first
   const [isSM, setisSM] = useState(false);
@@ -49,5 +49,6 @@ export function useScreenWidth() {
     isLG,
     isXL,
     is2XL,
+    is3XL,
   };
 }

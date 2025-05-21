@@ -1,6 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "commentAnchors.workspace.excludeFiles": "**/{node_modules,.git,.idea,target,out,build,bin,obj,vendor,coverage,release,stylesheets/dist,ts/**/*.js,ts/**/*.jsx}/**/*",
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },

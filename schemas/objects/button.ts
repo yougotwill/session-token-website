@@ -21,6 +21,7 @@ const fields = [
         { value: 'logo', title: 'Logo' },
         { value: 'logoWithCircle', title: 'Logo With Circle' },
         { value: 'house', title: 'House' },
+        { value: 'token', title: 'Token' },
       ],
     },
   }),

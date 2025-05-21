@@ -24,9 +24,10 @@ export function Header({ isDraftMode }: { isDraftMode: boolean }) {
   const pathname = usePathname();
   const rootPath = pathname?.split('/')[1];
 
-  const { isSM, isMD } = useScreenWidth();
+  const { isSM, isMD, isLG, isXL, is2XL, is3XL } = useScreenWidth();
 
-  const { menuTopLink, mobileMenuCta, menuItems } = useContext(SettingsContext);
+  const { menuTopLink, menuTopLink2, mobileMenuCta, mobileMenuCta2, menuItems } =
+    useContext(SettingsContext);
 
   useEffect(() => {
     if (isSM || isMD) {
@@ -123,11 +124,21 @@ export function Header({ isDraftMode }: { isDraftMode: boolean }) {
 
           {isSM || isMD ? (
             <div className={clsx('flex flex-col pb-16')}>
-              <Button {...mobileMenuCta} />
+              <div className={clsx('flex flex-row gap-4', 'sm:flex-row')}>
+                <Button {...mobileMenuCta} size={'small'} className={'max-h-9'} />
+                <Button {...mobileMenuCta2} size={'small'} className={'max-h-9'} />
+              </div>
               <Socials className="mt-5" />
             </div>
           ) : (
-            <Button {...menuTopLink} variant={'outline'} className={'max-h-9'} />
+            <div className={clsx('flex flex-row gap-4')}>
+              <Button
+                {...menuTopLink}
+                variant={isLG ? 'outline' : undefined}
+                className={'max-h-9'}
+              />
+              {isXL || is2XL || is3XL ? <Button {...menuTopLink2} className={'max-h-9'} /> : null}
+            </div>
           )}
         </div>
       </div>

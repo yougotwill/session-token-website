@@ -4,6 +4,7 @@ import Button from '@/components/Button/Button';
 import CMSImageBox from '@/components/ImageBox/CMSImageBox';
 
 import { AnimatedElement } from '@/components/AnimatedComponent/AnimatedComponent';
+import StakingRewardImageText from '@/components/StakingRewardImageText/StakingRewardImageText';
 import type { SanityImage } from '@/lib/sanity.image';
 import type { ButtonSchemaType } from '@/schemas/objects/button';
 import clsx from 'clsx';
@@ -19,11 +20,23 @@ type CopyAndImageProps = DeprecatedCopyAndImageProps & {
   button: ButtonSchemaType;
   mobileAlignment: 'imageAbove' | 'imageBelow' | undefined;
   desktopAlignment: 'imageLeft' | 'imageRight' | undefined;
+  isStakingRewardImage?: boolean;
+  stakingRewardFallbackValue?: number;
 };
 
 export default function CopyAndImage(props: CopyAndImageProps) {
-  const { title, copy, subCopy, image, button, mobileAlignment, desktopAlignment, showButton } =
-    props;
+  const {
+    title,
+    copy,
+    subCopy,
+    image,
+    button,
+    mobileAlignment,
+    desktopAlignment,
+    showButton,
+    isStakingRewardImage,
+    stakingRewardFallbackValue,
+  } = props;
 
   if (!mobileAlignment || !desktopAlignment) {
     // eslint-disable-next-line no-console
@@ -84,7 +97,23 @@ export default function CopyAndImage(props: CopyAndImageProps) {
           )}
           delay={mobileAlignment === 'imageAbove' || desktopAlignment === 'imageLeft' ? 100 : 200}
         >
-          {image && <CMSImageBox image={image} />}
+          <div className={clsx('relative flex items-center justify-center')}>
+            {image && <CMSImageBox image={image} />}
+            {isStakingRewardImage && stakingRewardFallbackValue ? (
+              <StakingRewardImageText
+                fallbackValue={stakingRewardFallbackValue}
+                textClasses={clsx(
+                  'flex flex-col items-start justify-end gap-2 h-4/6 w-10/12 my-auto mx-auto text-5xl font-medium',
+                  '@xs:text-6xl',
+                  '@sm:text-7xl',
+                  '@md:text-8xl',
+                  '@xl:text-9xl',
+                  '@3xl:text-[160px]'
+                )}
+                className={clsx('absolute inset-0 flex h-full w-full @container')}
+              />
+            ) : null}
+          </div>
         </AnimatedElement>
       </div>
     </section>

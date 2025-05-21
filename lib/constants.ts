@@ -30,3 +30,7 @@ export const REVALIDATIONS = {
 };
 
 export { UI };
+
+export enum LOCALE_DEFAULTS {
+  token_name_short = 'SESH',
+}

@@ -1,7 +1,9 @@
 'use client';
 
+import { clsx, type ClassValue } from 'clsx';
 import { throttle } from 'lodash';
 import { useEffect, useRef, useState } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 /* eslint-disable max-len */
 export const getSocialIcon = (company) => {
@@ -238,3 +240,16 @@ export const stripHtmlFromString = (htmlString) => {
   tmp.innerHTML = htmlString;
   return tmp.textContent || tmp.innerText || '';
 };
+
+export { cva } from 'class-variance-authority';
+export type { VariantProps } from 'class-variance-authority';
+
+/**
+ * Combines multiple class names into a single string.
+ *
+ * @param inputs - The class names to combine.
+ * @returns The combined class names as a string.
+ */
+export function cn(...inputs: Array<ClassValue>) {
+  return twMerge(clsx(inputs));
+}
